@@ -10,13 +10,13 @@ for loopFile = 1:number_file
     filename1 = strcat('interactions',str(loopFile),'.txt');  % 内部球
     filename2 = strcat('boun_wall_',str(loopFile),'.txt');    % 与墙接触的球
     % 读入结构信息
-    sp = load(filename1);
+    sp   = load(filename1);
     roll = length(sp);
-    sp2 = load(filename2);
+    sp2  = load(filename2);
     % 找出y轴范围
     y_up = zeros(2*roll,1);
-    for i=1:2:2*roll
-        y_up(i) = sp((i+1)/2,4) + sp((i+1)/2,6);
+    for i = 1:2:2*roll
+        y_up(i)   = sp((i+1)/2,4) + sp((i+1)/2,6);
         y_up(i+1) = sp((i+1)/2,9) + sp((i+1)/2,11);
     end
     y_min = 0;         % wall_id = 2
@@ -24,9 +24,9 @@ for loopFile = 1:number_file
 
     % 画网格
     % 真实结构尺寸
-    x_min = 0;     % wall_id = 0
+    x_min = 0;        % wall_id = 0
     x_max = 0.3*0.001;   % wall_id = 1
-    z_min = 0;     % wall_id = 4
+    z_min = 0;        % wall_id = 4
     z_max = 0.3*0.001;   % wall_id = 5
 
     % 网格尺寸，单位网格长度为dmsh
