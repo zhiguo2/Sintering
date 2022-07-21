@@ -8,10 +8,10 @@ file_write_1 = strcat('por_no_sinter_boun_',num2str(dmsh),'_',str(1),'-',str(len
 fid_1 = fopen(file_write_1,'w');
 for loopFile = 1:number_file
     filename = strcat('sphere_positions',str(loopFile),'.txt');
-    % ¶ÁÈë½á¹¹ĞÅÏ¢
+    % è¯»å…¥ç»“æ„ä¿¡æ¯
     sp=load(filename);
     roll=length(sp);
-    % ÕÒ³öx/y/zÖá·¶Î§
+    % æ‰¾å‡ºx/y/zè½´èŒƒå›´
     y_up = zeros(roll,1);
     for i=1:roll
         y_up(i) = sp(i,2) + sp(i,4);
@@ -19,13 +19,13 @@ for loopFile = 1:number_file
     y_min = 0;
     y_max = max(y_up);
 
-    % »­Íø¸ñ
-    % ÕæÊµ½á¹¹³ß´ç
+    % ç”»ç½‘æ ¼
+    % çœŸå®ç»“æ„å°ºå¯¸
     x_min = 0;
     x_max = 0.3*0.001;
     z_min = 0;
     z_max = 0.3*0.001;
-    % Íø¸ñ³ß´ç£¬µ¥Î»Íø¸ñ³¤¶ÈÎªdmsh
+    % ç½‘æ ¼å°ºå¯¸ï¼Œå•ä½ç½‘æ ¼é•¿åº¦ä¸ºdmsh
     LX=ceil((x_max-x_min)/dmsh);
     LY=ceil((y_max-y_min)/dmsh);
     LZ=ceil((z_max-z_min)/dmsh);
@@ -112,7 +112,7 @@ for loopFile = 1:number_file
             end
         end
     end
-    % ¼ÆËã¿×Ï¶ÂÊ
+    % è®¡ç®—å­”éš™ç‡
      for mm = 1:50
         sp_vol=0;
         tol_vol=0;
@@ -138,7 +138,7 @@ for loopFile = 1:number_file
         fprintf(fid_1,'%d %12.8f %12.8f\n',str2num(str(loopFile)), porosity(mm), surface_relative(mm));
      end
 
-    % Ğ´ÈëDatÎÄ¼ş    
+    % å†™å…¥Datæ–‡ä»¶    
     boun = 6;
     file_write = strcat('geo_noSinter_',str(loopFile),'_',num2str(LX-boun*2),'_',num2str(LY),'_',num2str(LZ-boun*2),'.dat');
     fid=fopen(file_write,'w');
