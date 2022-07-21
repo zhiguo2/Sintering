@@ -1,0 +1,11 @@
+!*** This is the input file for mpi_mod ***!
+AutoDecompose:      0 
+DecomposeInfo:      8 6 1
+
+!***
+AutoDecompose
+    0   yes
+    1   no - set the decompose info manually
+
+DecomposeInfo
+    2 2 2  - devision in x/y/z direction

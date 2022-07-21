@@ -1,0 +1,31 @@
+!*** This is the input file for domain_mod ***!
+Size:   288 311 288
+Time:   12000 12000 12000 0
+Length: 1 0.000001
+File:   geo_noSinter_0.01_288_311_288.dat
+Index:  0 1
+Bound:  1 3 1 1 3 1
+
+!***
+Size
+    10 10 10  - nx/ny/nz
+
+Time
+    100 10 100 0   - nt/nt_o/nt_f/nt_s
+    nt   iteration times
+    nt_o time steps for output macro
+    nt_f time steps for output f
+    nt_s time to start
+    
+Length
+    1 0.01    - nc/lc
+    
+File
+    NO        - no pm structure file
+    solid.dat - given structure file
+    
+Index
+    0 1  - 0 for pore and 1 for solid
+    
+Bound
+    0 0 0 0 0 0    - boundary conditions for 6 bounds

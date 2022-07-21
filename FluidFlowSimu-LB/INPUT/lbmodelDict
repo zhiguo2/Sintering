@@ -1,0 +1,11 @@
+!*** This is the input file for lbmodel_mod ***!
+w_tau:  1.0
+wK:     1.0
+
+!***
+w_tau
+    1.0  - 1/tau
+
+wK
+    1.0  - SRT
+    o.8. - MRT
