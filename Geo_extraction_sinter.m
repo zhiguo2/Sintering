@@ -7,13 +7,13 @@ dmsh = 0.001*0.001;
 file_write_1 = strcat('por_sinter_boun_',num2str(dmsh),'_',str(1),'-',str(length(str)),'.txt');
 fid_1 = fopen(file_write_1,'w');
 for loopFile = 1:number_file
-    filename1 = strcat('interactions',str(loopFile),'.txt');  % ÄÚ²¿Çò
-    filename2 = strcat('boun_wall_',str(loopFile),'.txt');    % ÓëÇ½½Ó´¥µÄÇò
-    % ¶ÁÈë½á¹¹ĞÅÏ¢
+    filename1 = strcat('interactions',str(loopFile),'.txt');  % å†…éƒ¨çƒ
+    filename2 = strcat('boun_wall_',str(loopFile),'.txt');    % ä¸å¢™æ¥è§¦çš„çƒ
+    % è¯»å…¥ç»“æ„ä¿¡æ¯
     sp = load(filename1);
     roll = length(sp);
     sp2 = load(filename2);
-    % ÕÒ³öyÖá·¶Î§
+    % æ‰¾å‡ºyè½´èŒƒå›´
     y_up = zeros(2*roll,1);
     for i=1:2:2*roll
         y_up(i) = sp((i+1)/2,4) + sp((i+1)/2,6);
@@ -22,21 +22,21 @@ for loopFile = 1:number_file
     y_min = 0;         % wall_id = 2
     y_max = max(y_up); % wall_id = 3
 
-    % »­Íø¸ñ
-    % ÕæÊµ½á¹¹³ß´ç
+    % ç”»ç½‘æ ¼
+    % çœŸå®ç»“æ„å°ºå¯¸
     x_min = 0;     % wall_id = 0
     x_max = 0.3*0.001;   % wall_id = 1
     z_min = 0;     % wall_id = 4
     z_max = 0.3*0.001;   % wall_id = 5
 
-    % Íø¸ñ³ß´ç£¬µ¥Î»Íø¸ñ³¤¶ÈÎªdmsh
+    % ç½‘æ ¼å°ºå¯¸ï¼Œå•ä½ç½‘æ ¼é•¿åº¦ä¸ºdmsh
     LX = ceil((x_max - x_min) / dmsh);
     LY = floor((y_max - y_min) / dmsh);
     LZ = ceil((z_max - z_min) / dmsh);
 
     rr  = zeros(LX,LY,LZ);
     pos = zeros(LX,LY,LZ);
-    %% ÄÚ²¿Çò
+    %% å†…éƒ¨çƒ
     for i=1:length(sp)
         x_w1 = sp(i,3) - sp(i,6) - x_min;
         x_w2 = sp(i,8) - sp(i,11) - x_min;
@@ -251,7 +251,7 @@ for loopFile = 1:number_file
             end
         end
     end
-    %% ÓëÇ½½Ó´¥µÄÇò
+    %% ä¸å¢™æ¥è§¦çš„çƒ
     for i=1:length(sp2)
         if sp2(i,2) == 0  % wall_id = 0, x_min
             h = sp2(i,6) - sp2(i,3);
@@ -644,7 +644,7 @@ for loopFile = 1:number_file
             end
         end
     end
-    % ¼ÆËã¿×Ï¶ÂÊ
+    % è®¡ç®—å­”éš™ç‡
     for mm = 1:50
         sp_vol=0;
         tol_vol=0;
@@ -672,7 +672,7 @@ for loopFile = 1:number_file
 %     figure(1)
 %     plot(porosity)
     %save 3d_structure rr
-    % Ğ´ÈëDatÎÄ¼ş  
+    % å†™å…¥Datæ–‡ä»¶  
     boun = 12;
     file_write = strcat('geo_',str(loopFile),'_',num2str(LX-boun*2),'_',num2str(LY),'_',num2str(LZ-boun*2),'.dat');
     fid=fopen(file_write,'w');
