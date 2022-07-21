@@ -1,0 +1,23 @@
+!*** This is the input file for flow_mod ***!
+!-Properties
+Density:    1000
+Viscosity:  1.0E-6
+BodyForce:  0 0 0
+
+!-Boundary condition
+  p:    0 0.5 0 0 -0.5 0
+ um:    0 0 0  0 0 0
+
+!-Initial condition
+FromFile:       3
+RegionPara1:    0.64E-4 0.64E-4 0.5E-6
+RegionPara2:    0.3E-4  0.3E-4  0.3E-4
+pInAndOut:    1 0
+
+!***
+FromFile
+    0    - yes, read from nt_s directory
+    1    - no, a circle region
+    2    - no, a square region
+    3... - no
+
